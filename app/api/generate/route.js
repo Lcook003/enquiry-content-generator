@@ -18,6 +18,8 @@ export async function POST(request) {
 
     // Strip out names, emails and phone numbers before we do anything else.
     // Nothing personally identifiable should leave this function.
+    // TODO: replace this regex approach with a proper NLP library at some point —
+    // it works for the obvious stuff but won't catch everything
     const anonymised = enquiry
       .replace(/\b[A-Z][a-z]+ [A-Z][a-z]+\b/g, '[Name]')
       .replace(/\b[\w.-]+@[\w.-]+\.\w+\b/g, '[Email]')

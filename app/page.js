@@ -21,6 +21,7 @@ export default function Home() {
   }, []);
 
   const fetchArticles = async () => {
+    // TODO: add pagination here once the article list gets long
     const { data } = await supabase
       .from('articles')
       .select('*')
